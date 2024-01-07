@@ -1,0 +1,155 @@
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+body {
+    margin: 0;
+}
+.conteiner {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to left, rgb(153 153 153 / 21%), #00152e), url('img/bg.jpg');
+    background-color: rgb(2, 9, 10, 0.48);
+    background-size: cover;
+    /* background: transparent; */
+    background-repeat: no-repeat;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    overflow: auto; /* Разрешаем прокрутку контента */
+
+}
+
+.menu {
+    width: 200px;
+    height: 100%;
+    background-color: rgba(51, 51, 51, 0.7); /* Цвет с прозрачностью (rgba) */
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.menu ul {
+    list-style: none;
+    padding: 26px 0;
+}
+
+.menu li {
+    display: block;
+    margin: 10px 0;
+}
+
+.menu a {
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    padding: 10px;
+    border-bottom: 1px solid #fff;
+    border-top: 1px solid #fff;
+}
+
+/* Остальные стили остаются без изменений */
+
+.content {
+    margin-left: 220px;
+    display: none;
+    padding: 20px;
+    color: #ffffff; /* Цвет текста */
+}
+
+.content.active {
+    display: block;
+}
+
+.content h1 {
+    font-size: 24px;
+}
+
+.content h2 {
+    font-size: 20px;
+    background-color: rgb(2 9 10 / 29%);
+    padding: 10px;
+    border-radius: 3%;
+}
+
+.content p {
+    font-size: 16px;
+    background-color: rgb(2 9 10 / 29%);
+    padding: 10px;
+    border-radius: 3%;
+}
+
+.content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 3%;
+}
+
+.menu-toggle {
+    display: none;
+}
+
+
+
+@media (max-width: 750px) {
+    .menu {
+       display: none; /* Скрываем меню при разрешении менее 750px */
+    }
+
+    .menu-toggle {
+        display: block; /* Показываем бургер-кнопку */
+        display: block;
+        width: 30px;
+        height: 22px;
+        cursor: pointer;
+        position: absolute;
+        left: 10px;
+        top: 15px;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        background-color: transparent;
+        border: none;
+        padding: 0;
+        outline: none;
+    }
+
+    .menu-toggle span {
+        width: 100%;
+        background-color: #fff;
+        height: 3px;
+    }
+
+    .menu-toggle::before, .menu-toggle::after {
+        content: "";
+        width: 100%;
+        height: 3px;
+        background-color: #fff;
+        position: absolute;
+    }
+    
+    .menu-toggle::before {
+        top: 0;
+        left: 0;
+    }
+    
+    .menu-toggle::after {
+        bottom: 0;
+        right: 0;
+    }
+    
+    .menu.active {
+        display: block; /* Показываем меню при клике на бургер-кнопку */
+    }
+
+    .content {
+        margin: 0;
+    }
+}
